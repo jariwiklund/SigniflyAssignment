@@ -16,9 +16,9 @@ class Project
     private $name;
 
     /**
-     * @var SkillArray
+     * @var CompetenceArray
      */
-    private $required_skills;
+    private $needed_competences;
 
     /**
      * Project constructor.
@@ -26,11 +26,11 @@ class Project
      * @param string $name
      * @param SkillArray $required_skills
      */
-    public function __construct(Uuid $id, string $name, SkillArray $required_skills)
+    public function __construct(Uuid $id, string $name, CompetenceArray $needed_competences)
     {
         $this->id = $id;
         $this->name = $name;
-        $this->required_skills = $required_skills;
+        $this->needed_competences = $needed_competences;
     }
 
     /**
@@ -50,11 +50,11 @@ class Project
     }
 
     /**
-     * @return SkillArray
+     * @return CompetenceArray
      */
-    public function getRequiredSkills(): SkillArray
+    public function getNeededCompetences(): CompetenceArray
     {
-        return $this->required_skills;
+        return $this->needed_competences;
     }
 
 }

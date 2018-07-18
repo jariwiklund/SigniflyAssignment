@@ -25,7 +25,7 @@ abstract class AbstractTypedArray implements ArrayAccess, Iterator
     }
 
     /**
-     * @param $object
+     * @param static $object
      * @throws InvalidArgumentException
      */
     public function add($object)
@@ -38,7 +38,7 @@ abstract class AbstractTypedArray implements ArrayAccess, Iterator
      * @param $object
      * @throws InvalidArgumentException
      */
-    private function validateType($object)
+    protected function validateType($object)
     {
         if(!is_object($object)){
             throw new InvalidArgumentException('Argument must be an object');
@@ -95,5 +95,10 @@ abstract class AbstractTypedArray implements ArrayAccess, Iterator
     public function valid(): bool
     {
         return $this->key() !== null;
+    }
+
+    public function count(): int
+    {
+        return count($this->array);
     }
 }

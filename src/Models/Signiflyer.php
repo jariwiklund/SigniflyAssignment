@@ -3,7 +3,9 @@
 namespace SigniflyAssignment\Models;
 
 
+use Psr\Http\Message\UriInterface;
 use Ramsey\Uuid\Uuid;
+use SigniflyAssignment\Service\CompetenceCalculator;
 
 class Signiflyer
 {
@@ -51,13 +53,14 @@ class Signiflyer
      * @param string $background_story
      * @param CompetenceArray $competences
      */
-    public function __construct(Uuid $id, string $name, string $email, string $phone, string $background_story, CompetenceArray $competences)
+    public function __construct(Uuid $id, string $name, string $email, string $phone, string $background_story, UriInterface $profile_image, CompetenceArray $competences)
     {
         $this->id = $id;
         $this->name = $name;
         $this->email = $email;
         $this->phone = $phone;
         $this->background_story = $background_story;
+        $this->profile_image = $profile_image;
         $this->competences = $competences;
     }
 
@@ -106,4 +109,18 @@ class Signiflyer
         $this->competences->add($competence);
     }
 
+    public function getCompetenceCoverage(Competence $needed_competence): float
+    {
+        /** @var Competence $signiflyers_competence */
+        $signiflyers_competence = $this->competences->getBySkill($needed_competence->getSkill());
+        if($signiflyers_competence === null){
+            return 0;
+        }
+
+        //If somebody's over-competent, just pretend that he fits right-on-the-money
+        return min(
+            1,
+            $signiflyers_competence->getCompetenceLevel()->getCoveragePercentage($needed_competence->getCompetenceLevel())
+        );
+    }
 }

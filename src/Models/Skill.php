@@ -16,7 +16,6 @@ class Skill
     private $name;
 
     /**
-     * Skill constructor.
      * @param Uuid $id
      * @param String $name
      */
@@ -41,7 +40,5 @@ class Skill
     {
         return $this->name;
     }
-
-
 
 }
