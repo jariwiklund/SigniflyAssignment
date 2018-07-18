@@ -6,7 +6,8 @@
         "ramsey/uuid": "^3.7",
         "pear/math_combinatorics": "dev-master",
         "psr/http-message": "^1.0",
-        "guzzlehttp/psr7": "^1.4"
+        "guzzlehttp/psr7": "^1.4",
+        "symfony/http-foundation": "^3.4"
     },
     "autoload": {
         "psr-4": {

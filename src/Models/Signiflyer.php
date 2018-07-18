@@ -109,6 +109,11 @@ class Signiflyer
         $this->competences->add($competence);
     }
 
+    public function getCompetences()
+    {
+        return clone $this->competences;
+    }
+
     public function getCompetenceCoverage(Competence $needed_competence): float
     {
         /** @var Competence $signiflyers_competence */

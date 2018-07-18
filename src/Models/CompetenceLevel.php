@@ -36,4 +36,9 @@ class CompetenceLevel
     {
         return $this->level / $competenceLevel->level;
     }
+
+    public function __toString(): string
+    {
+        return $this->level;
+    }
 }
