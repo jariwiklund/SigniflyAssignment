@@ -3,13 +3,13 @@
 use GuzzleHttp\Psr7\Request;
 use PHPUnit\Framework\TestCase;
 use Ramsey\Uuid\Uuid;
-use SigniflyAssignment\Controllers\ProjectController;
+use SigniflyAssignment\Controllers\ProjectsController;
 
 class ControllerTest extends TestCase
 {
     public function test_can_call_index()
     {
-        $controller = new ProjectController();
+        $controller = new ProjectsController();
         $request = new Request('GET', '/projects');
         $response = $controller->handleRequest($request);
         $json = json_decode($response->getContent());
@@ -19,7 +19,7 @@ class ControllerTest extends TestCase
 
     public function test_can_call_show()
     {
-        $controller = new ProjectController();
+        $controller = new ProjectsController();
         $request = new Request('GET', '/projects/'.Uuid::uuid4()->toString());
         $response = $controller->handleRequest($request);
         $json = json_decode($response->getContent());
@@ -28,7 +28,7 @@ class ControllerTest extends TestCase
 
     public function test_can_call_generateTeamSuggestions()
     {
-        $controller = new ProjectController();
+        $controller = new ProjectsController();
         $json = [
             'team_size' => 2,
             'min_competence_coverage' => 0.75,

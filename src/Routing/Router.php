@@ -2,6 +2,9 @@
 namespace SigniflyAssignment\Routing;
 
 use Psr\Http\Message\RequestInterface;
+use SigniflyAssignment\Controllers\ControllerInterface;
+use SigniflyAssignment\Controllers\ErrorController;
+use SigniflyAssignment\Controllers\RootController;
 
 /**
  * Class Router
@@ -22,16 +25,18 @@ class Router
     public function routeRequestToController(): ControllerInterface
     {
         $path_parts = explode('/', $this->request->getUri()->getPath());
-        $controller_name = $path_parts[0];
+        $controller_name = $path_parts[1];
         if($controller_name === ''){
             return new RootController($this->request);
         }
-        $controller_fqn = 'SigniflyAssignment\\Controllers\\'.$controller_name;
+        //todo: better path-to-controller conversion
+        $controller_name = ucfirst($controller_name);
+        $controller_fqn = 'SigniflyAssignment\\Controllers\\'.$controller_name.'Controller';
 
         if(!class_exists($controller_fqn)){
             return new ErrorController(404, $controller_name.' does not exists');
         }
 
-        return new $controller_name($this->request);
+        return new $controller_fqn();
     }
 }

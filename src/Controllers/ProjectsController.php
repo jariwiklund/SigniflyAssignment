@@ -17,7 +17,7 @@ use SigniflyAssignment\Views\ProjectJsonView;
 use SigniflyAssignment\Views\ProjectTeamArrayJsonView;
 use Symfony\Component\HttpFoundation\Response;
 
-class ProjectController implements ControllerInterface
+class ProjectsController implements ControllerInterface
 {
 
     /**

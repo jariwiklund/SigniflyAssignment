@@ -5,7 +5,6 @@ namespace SigniflyAssignment\Models;
 
 use Psr\Http\Message\UriInterface;
 use Ramsey\Uuid\Uuid;
-use SigniflyAssignment\Service\CompetenceCalculator;
 
 class Signiflyer
 {

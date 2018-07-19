@@ -1,6 +1,6 @@
 <?php
 
-namespace SigniflyAssignment\Routing;
+namespace SigniflyAssignment\Controllers;
 
 
 use Psr\Http\Message\RequestInterface;

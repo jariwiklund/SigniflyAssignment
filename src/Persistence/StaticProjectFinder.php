@@ -29,7 +29,7 @@ class StaticProjectFinder implements FinderInterface
         $productManagementSkill = new Skill(Uuid::fromString('1e99036f-04d5-47bf-a69a-491982bc4f07'), 'Product management');
 
         return new Project(
-            Uuid::uuid4(),
+            Uuid::fromString('8d0eaf16-2c2f-47cd-9ec4-1ee19b69d5e4'),
             'Test project',
             CompetenceArray::fromArray([
                 new Competence($laravelSkill, new CompetenceLevel(CompetenceLevel::EXPERT)),
