@@ -7,16 +7,14 @@ My next steps would have been to implement proper routing in a way that would ea
 The frontend is all but non-existing since I planned for the assignment to be completed as an API-only submission. Unfortunately I didn't have the time to fully complete a RESTful api. This API would have provided all the endpoints needed for adding data as specified.
 
 ### Uncertainties
-I was a bit uncertain if I should categorise the skills into education, skills etc. but it seemed to me that having a simple modle could fulfill the use-case of creating team-suggesions based on what competences were required and what was available.
+I was a bit uncertain if I should categorise the skills into education, skills etc. but it seemed to me that having a simple model could fulfill the use-case of creating team-suggesions based on what competences were required and what was available.
 
 
 ### E/R diagram:
 ![alt text](https://github.com/jariwiklund/SigniflyAssignment/blob/master/er_diagram.png?raw=true "ER diagram")
 
-
 ### To install
 *composer install*
-
 
 ### Run the tests:
 *php vendor/phpunit/phpunit/phpunit tests*
